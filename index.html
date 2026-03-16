@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Wanda Bryant – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-elevated: #111016;
+      --bg-soft: #18171f;
+      --accent: #c8930a;
+      --accent-soft: #e0b85a;
+      --text-main: #f3f3f3;
+      --text-muted: #a29aa8;
+      --border-subtle: #262331;
+      --max-width: 1120px;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 14px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1b1824 0, #050506 55%, #020203 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Shell */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      flex: 1 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 8, 0.96),
+        rgba(5, 5, 8, 0.86),
+        rgba(5, 5, 8, 0.78)
+      );
+      border-bottom: 1px solid rgba(38, 35, 49, 0.9);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 32% 18%;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.45);
+      opacity: 0.7;
+    }
+
+    .brand-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.22s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--text-main);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 40px;
+      margin-top: 32px;
+      padding: 30px 26px 28px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(200, 147, 10, 0.18), transparent 60%),
+        var(--bg-elevated);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.06), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(200, 147, 10, 0.16), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: contents;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.1;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #f3e0b0, #c8930a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-body {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.12s ease,
+        box-shadow 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c8930a, #7a5a1f);
+      color: #050506;
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-ghost {
+      border-color: rgba(200, 147, 10, 0.5);
+      color: var(--text-main);
+      background: rgba(11, 10, 16, 0.9);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(18, 16, 24, 1);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      background: #000;
+      isolation: isolate;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+      transform-origin: center;
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(5, 5, 8, 0.82);
+      color: #fdf8f2;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+
+    .hero-caption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(5, 5, 8, 0.86);
+      color: #fdf8f2;
+      font-size: 0.75rem;
+      max-width: 80%;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-caption-title {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .hero-caption-meta {
+      opacity: 0.8;
+    }
+
+    main {
+      margin-top: 30px;
+    }
+
+    .section-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 26px;
+      margin-bottom: 26px;
+    }
+
+    .section-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 55%), var(--bg-soft);
+      box-shadow: var(--shadow-subtle);
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid rgba(38, 35, 49, 0.9);
+    }
+
+    .section-card.alt {
+      background: radial-gradient(circle at bottom right, rgba(200, 147, 10, 0.12), transparent 55%), #14131c;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-link span {
+      font-size: 1rem;
+    }
+
+    .section-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .work-item {
+      border-radius: var(--radius-md);
+      background: #201f2a;
+      height: 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-item-inner {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05);
+      transform: scale(1.02);
+    }
+
+    .work-item-label {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(5, 5, 8, 0.82);
+      color: #fdf8f2;
+      font-size: 0.7rem;
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .about-meta {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-link {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      margin-top: auto;
+      border-top: 1px solid #333;
+      padding: 4rem 1.5rem 3rem;
+      color: #e6e6e6;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer span a.footer-email {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    footer span a.footer-email:hover {
+      text-decoration: underline;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    /* NPD signature – kept exactly as in your existing site */
+    .npd-signature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0.8;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: opacity 0.25s;
+    }
+    .npd-signature:hover { opacity: 1; }
+    .npd-logo-box {
+      width: 26px; height: 26px;
+      border: 1px solid #c8841a;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .npd-logo-box span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: #c8841a;
+    }
+    .npd-logo-box::after {
+      content: '';
+      position: absolute;
+      width: 3px; height: 3px;
+      background: #c8841a;
+      bottom: 3px; right: 3px;
+    }
+    .npd-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      line-height: 1;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #a89a7a;
+    }
+    .npd-text b { color: #e8d4a8; font-weight: 400; }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 24px 18px 22px;
+      }
+
+      .hero-image-wrap {
+        order: -1;
+        max-height: 380px;
+      }
+
+      .section-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+
+      .page {
+        padding-inline: 16px;
+      }
+
+      .hero {
+        margin-top: 20px;
+      }
+
+      .work-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div>
+        <div class="brand-title">Art by Wanda Bryant</div>
+        <div class="brand-subtitle">Textile &amp; Fiber Art</div>
+      </div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="whats-new.html">Recent Work</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-kicker">Textile &amp; fiber sculpture</div>
+        <h1 class="hero-title" id="hero-title">
+          3‑dimensional wall hangings and sculptures that explore
+          <span>color, texture, form, and movement</span>.
+        </h1>
+        <p class="hero-body">
+          Welcome. My 3-dimensional wall hangings and free-standing sculptures explore
+          color, texture, form and movement through the manipulation of textiles in
+          combination with found objects and natural elements such as tree branches,
+          bark, and palm fronds and sheaths. Enjoy.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-dot"></span>
+            <span>Recent work in sculpture, Emotiforms, and the Deflated Series</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-dot"></span>
+            <span>Based in Los Angeles, available for exhibitions and commissions</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="whats-new.html" class="btn btn-primary">
+            View recent work
+            <span class="btn-icon">↗</span>
+          </a>
+          <a href="portfolio.html" class="btn btn-ghost">
+            Explore portfolio
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-image-wrap">
+        <img
+          src="./images/spokes.webp"
+          alt="Textile wall hanging by Wanda Bryant"
+          class="hero-image"
+        />
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Featured work</span>
+        </div>
+        <figcaption class="hero-caption">
+          <div class="hero-caption-title">Textile wall hanging</div>
+          <div class="hero-caption-meta">
+            Mixed media textile work exploring movement, light, and layered texture.
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main>
+    <section class="section-row" aria-label="Highlights">
+      <article class="section-card">
+        <header class="section-header">
+          <h2 class="section-title">Recent work</h2>
+          <a href="whats-new.html" class="section-link">
+            View series
+            <span>↗</span>
+          </a>
+        </header>
+        <div class="section-body">
+          New sculptures and wall pieces continue my exploration of textile manipulation,
+          found materials, and natural forms. Visit the Recent Work page to see the latest
+          palm-sheath sculptures and mixed media pieces.
+        </div>
+        <div class="work-grid" aria-label="Preview of recent pieces">
+  <div class="work-item">
+    <div class="work-item-inner"
+         style="background-image: url('images/whats-new/untitled/untitled1.webp');">
+    </div>
+    <div class="work-item-label">Untitled</div>
+  </div>
+
+  <div class="work-item">
+    <div class="work-item-inner"
+         style="background-image: url('images/whats-new/spindrift/spindrift1.webp');">
+    </div>
+    <div class="work-item-label">Spindrift</div>
+  </div>
+
+  <div class="work-item">
+    <div class="work-item-inner"
+         style="background-image: url('images/whats-new/rider/rider1.webp');">
+    </div>
+    <div class="work-item-label">Rider</div>
+  </div>
+</div>
+
+      </article>
+
+      <article class="section-card alt">
+        <header class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <a href="portfolio.html" class="section-link">
+            Enter gallery
+            <span>↗</span>
+          </a>
+        </header>
+        <div class="section-body">
+          The portfolio gathers sculpture, Emotiforms, and the Deflated Series into a
+          single, evolving body of work. Each piece layers materials, memory, and
+          improvisation, often combining street detritus with fine textiles.
+        </div>
+      </article>
+    </section>
+
+    <section class="section-row" aria-label="About and contact">
+      <article class="section-card">
+        <header class="section-header">
+          <h2 class="section-title">About</h2>
+          <a href="about.html" class="section-link">
+            Read full statement
+            <span>↗</span>
+          </a>
+        </header>
+        <div class="about-text">
+          I was born in Iowa; I now live with cats in Los Angeles. Following a long,
+          successful academic career in ethnomusicology, I now work as a visual artist,
+          specializing in sculpture, both freestanding and wall-mounted, with an emphasis
+          on textile manipulation.
+        </div>
+        <div class="about-meta">
+          My works are layered with multiple meanings and often juxtapose LA street
+          detritus with expensive fabrics to address the world I move through.
+        </div>
+      </article>
+
+      <article class="section-card alt">
+        <header class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <a href="contact.html" class="section-link">
+            Details
+            <span>↗</span>
+          </a>
+        </header>
+        <div class="contact-list">
+          <div>
+            <div class="contact-label">Email</div>
+            <a href="mailto:artbywandabryant@gmail.com" class="contact-link">
+              artbywandabryant@gmail.com
+            </a>
+          </div>
+          <div>
+            <div class="contact-label">Inquiries</div>
+            <div>Commissions, exhibitions, and sales inquiries are welcome.</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span><a href="mailto:artbywandabryant@gmail.com" class="footer-email">artbywandabryant@gmail.com</a></span>
+    <a href="https://nullpointdesign.github.io" target="_blank" rel="noopener" class="npd-signature">
+      <div class="npd-logo-box"><span>N</span></div>
+      <div class="npd-text">Site design by Catherine Anderson @ <b>Null Point Design</b></div>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

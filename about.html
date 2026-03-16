@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Wanda Bryant – About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-elevated: #111016;
+      --bg-soft: #18171f;
+      --accent: #c8930a;
+      --accent-soft: #e0b85a;
+      --text-main: #f3f3f3;
+      --text-muted: #a29aa8;
+      --border-subtle: #262331;
+      --max-width: 1120px;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 14px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1b1824 0, #050506 55%, #020203 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 8, 0.96),
+        rgba(5, 5, 8, 0.86),
+        rgba(5, 5, 8, 0.78)
+      );
+      border-bottom: 1px solid rgba(38, 35, 49, 0.9);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    nav a.active {
+      color: var(--text-main);
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.22s ease;
+    }
+
+    /* Page container */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      flex: 1 0 auto;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* About content */
+    .about-section {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .about-section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+    }
+
+    .about-section p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CV styling */
+    .cv-section {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .cv-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .cv-header strong {
+      font-size: 1.1rem;
+      color: var(--text-main);
+    }
+
+    .cv-header a {
+      color: var(--accent-soft);
+    }
+
+    .cv-section h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .cv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-table td {
+      vertical-align: top;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(38, 35, 49, 0.5);
+    }
+
+    .cv-table td:first-child {
+      width: 25%;
+      padding-right: 1rem;
+      color: var(--text-muted);
+    }
+
+    .cv-table td:last-child {
+      color: var(--text-main);
+    }
+
+    .cv-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cv-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(38, 35, 49, 0.5);
+    }
+
+    .cv-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 4rem 1.5rem 3rem;
+      border-top: 1px solid #333;
+      color: #e6e6e6;
+    }
+
+    .footer-email {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    .footer-email:hover {
+      text-decoration: underline;
+    }
+
+    .npd-signature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0.8;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: opacity 0.25s;
+    }
+    .npd-signature:hover { opacity: 1; }
+
+    .npd-logo-box {
+      width: 26px; height: 26px;
+      border: 1px solid #c8841a;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .npd-logo-box span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: #c8841a;
+    }
+    .npd-logo-box::after {
+      content: '';
+      position: absolute;
+      width: 3px; height: 3px;
+      background: #c8841a;
+      bottom: 3px; right: 3px;
+    }
+    .npd-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      line-height: 1;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #a89a7a;
+    }
+    .npd-text b { color: #e8d4a8; font-weight: 400; }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .cv-table td:first-child {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div>
+        <div class="brand-title">Art by Wanda Bryant</div>
+        <div class="brand-subtitle">Textile &amp; Fiber Art</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="whats-new.html">Recent Work</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page">
+  <h1>About</h1>
+
+  <!-- Artist Statement -->
+  <section class="about-section">
+    <h2>Artist Statement</h2>
+    <p>
+      I was born in Iowa; I now live with cats in Los Angeles. As a child, the ethos
+      of Midwestern conformity governed my social world. I found my first escape
+      through music. Later, ethnomusicology opened my ears to nonwestern music.
+      While living in LA, first studying at UCLA and later teaching at the California
+      Institute of the Arts, I was exposed to and worked with brilliant avant garde
+      artists, free thinkers, and exceptional intellects who strove to push the
+      accepted boundaries of art.
+    </p>
+    <p>
+      Following a long, successful academic career in ethnomusicology, I now work
+      as a visual artist, specializing in sculpture, both freestanding and wall-mounted,
+      with an emphasis on textile manipulation. My works are layered with multiple
+      meanings that are often unclear until the work is complete, structures that
+      seemingly create themselves, and media whose juxtapositions are unusual, pretty,
+      startling, or even whimsical. I often incorporate detritus from LA's streets
+      side by side with expensive fabrics to address issues that are part of my world.
+    </p>
+    <p>
+      I attempt to create work that adheres to its own internal rules, without reference
+      to what was once thought of as "correct" or "proper" in art. I listen to my inner
+      voice, my "big magic," to pursue my authentic self-expression. With each created
+      piece, and each project, I become more free.
+    </p>
+    <p>
+      Thanks for coming by to explore my work.
+    </p>
+  </section>
+
+  <!-- Curriculum Vitae -->
+  <section class="cv-section">
+    <h2>Curriculum Vitae</h2>
+
+    <div class="cv-header">
+      <strong>Wanda Bryant</strong><br>
+      Sherman Oaks, CA<br>
+      www.wandabryant.com<br>
+      <a href="mailto:artbywandabryant@gmail.com">artbywandabryant@gmail.com</a>
+      &nbsp;or&nbsp;
+      <a href="mailto:wanbryant@gmail.com">wanbryant@gmail.com</a>
+    </div>
+
+    <h3>Art Education</h3>
+    <table class="cv-table">
+      <tr>
+        <td>2015 – 2019</td>
+        <td>Los Angeles Valley College Art Dept., Los Angeles, CA</td>
+      </tr>
+    </table>
+
+    <h3>Art Exhibitions</h3>
+    <ul class="cv-list">
+      <li><strong>2024</strong> — "Blue", Ohlone Center for the Arts</li>
+      <li><strong>2024</strong> — "Light, Shadows, Reflection", Gallerium</li>
+      <li><strong>2024</strong> — Curves 2024, Exhibizone</li>
+      <li><strong>2024</strong> — Open 2024, Red Bluff Art Gallery</li>
+      <li><strong>2023</strong> — Lecture, LAVC President's Circle</li>
+      <li><strong>2023</strong> — Woman 2023, Exhibizone</li>
+      <li><strong>2023</strong> — Fibers of Nature, Floyd Center for the Arts, VA</li>
+      <li><strong>2023</strong> — Fantastic Fibers, Yeiser Art Gallery, KY</li>
+      <li><strong>2022</strong> — MOOD, Art Fluent</li>
+      <li><strong>2022</strong> — AQUA, Gallerium Art Exhibitions</li>
+      <li><strong>2022</strong> — <em>Artistonish Magazine</em>, Issue 29</li>
+      <li><strong>2019</strong> — Launch19, LAVC</li>
+      <li><strong>2018</strong> — Tautline, LAVC</li>
+      <li><strong>2016</strong> — Annual Student Art Exhibition, LAVC</li>
+    </ul>
+
+    <h3>Art Awards and Honors</h3>
+    <ul class="cv-list">
+      <li><strong>2019</strong> — Faculty Choice Award, Launch19</li>
+      <li><strong>2018</strong> — Faculty Choice Award, Launch18</li>
+    </ul>
+
+    <h3>Previous Educational Profile</h3>
+    <ul class="cv-list">
+      <li>Ph.D. in Ethnomusicology, UCLA</li>
+      <li>M.A. in Music, UCLA</li>
+      <li>B.A. in Music Education, Drake University</li>
+    </ul>
+
+    <h3>Work Profile</h3>
+    <table class="cv-table">
+      <tr>
+        <td>1986 – 1990</td>
+        <td>Instrumental Music Teacher, Thousand Oaks Arts Council</td>
+      </tr>
+      <tr>
+        <td>1995 – 1996</td>
+        <td>Lecturer, UCLA Dept. of Ethnomusicology</td>
+      </tr>
+      <tr>
+        <td>1995 – 2012</td>
+        <td>Adjunct Assistant Professor, Pasadena City College</td>
+      </tr>
+      <tr>
+        <td>2000 – 2012</td>
+        <td>Lecturer, CalArts</td>
+      </tr>
+      <tr>
+        <td>2007 – 2009</td>
+        <td>Ethnomusicology consultant, <em>Avatar</em> (James Horner)</td>
+      </tr>
+    </table>
+  </section>
+</div>
+
+<footer>
+  <span><a href="mailto:artbywandabryant@gmail.com" class="footer-email">artbywandabryant@gmail.com</a></span>
+  <a href="https://nullpointdesign.github.io" target="_blank" rel="noopener" class="npd-signature">
+    <div class="npd-logo-box"><span>N</span></div>
+    <div class="npd-text">Site design by Catherine Anderson @ <b>Null Point Design</b></div>
+  </a>
+</footer>
+
+</body>
+</html>

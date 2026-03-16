@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Wanda Bryant – Deflated Series</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050506;
+      --bg-elevated: #111016;
+      --bg-soft: #18171f;
+      --accent: #c8930a;
+      --accent-soft: #e0b85a;
+      --text-main: #f3f3f3;
+      --text-muted: #a29aa8;
+      --border-subtle: #262331;
+      --max-width: 1120px;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 14px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1b1824 0, #050506 55%, #020203 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 8, 0.96),
+        rgba(5, 5, 8, 0.86),
+        rgba(5, 5, 8, 0.78)
+      );
+      border-bottom: 1px solid rgba(38, 35, 49, 0.9);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    nav a.active {
+      color: var(--text-main);
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.22s ease;
+    }
+
+    /* Secondary nav */
+    .secondary-nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 20px 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(38, 35, 49, 0.9);
+    }
+
+    .secondary-nav a {
+      color: var(--text-muted);
+      margin-right: 10px;
+    }
+
+    .secondary-nav a.active {
+      color: var(--text-main);
+    }
+
+    /* Page container */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      flex: 1 0 auto;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* Work blocks */
+    .work {
+      margin-bottom: 4rem;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .image-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1.2rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .image-strip img {
+      max-width: 280px;
+      height: auto;
+      border-radius: var(--radius-md);
+      background: #000;
+      cursor: zoom-in;
+    }
+
+    .work-label {
+      padding-left: 0.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .work h4 {
+      margin: 0 0 0.3rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      width: 50%;
+      margin: 3rem auto;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0)
+      );
+    }
+
+    /* LIGHTBOX */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: var(--radius-md);
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      padding: 20px;
+    }
+
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    .lightbox-title {
+      position: fixed;
+      top: 20px;
+      left: 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      pointer-events: none;
+    }
+
+    .lightbox-toggle {
+      position: fixed;
+      top: 20px;
+      right: 90px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .lightbox-nav {
+        font-size: 2.2rem;
+        padding: 10px;
+      }
+      .lightbox-close {
+        font-size: 1.8rem;
+      }
+      .lightbox-toggle {
+        top: 60px;
+        right: 20px;
+      }
+    }
+
+    /* Footer (preserved) */
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 4rem 1.5rem 3rem;
+      border-top: 1px solid #333;
+      color: #e6e6e6;
+    }
+
+    .footer-email {
+      color: #e6e6e6;
+      text-decoration: none;
+    }
+
+    .footer-email:hover {
+      text-decoration: underline;
+    }
+
+    .npd-signature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0.8;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: opacity 0.25s;
+    }
+    .npd-signature:hover { opacity: 1; }
+
+    .npd-logo-box {
+      width: 26px; height: 26px;
+      border: 1px solid #c8841a;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .npd-logo-box span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: #c8841a;
+    }
+    .npd-logo-box::after {
+      content: '';
+      position: absolute;
+      width: 3px; height: 3px;
+      background: #c8841a;
+      bottom: 3px; right: 3px;
+    }
+    .npd-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      line-height: 1;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #a89a7a;
+    }
+    .npd-text b { color: #e8d4a8; font-weight: 400; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div>
+        <div class="brand-title">Art by Wanda Bryant</div>
+        <div class="brand-subtitle">Textile &amp; Fiber Art</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="whats-new.html">Recent Work</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="secondary-nav">
+  <a href="sculpture.html">Sculpture</a> |
+  <a href="emotiforms.html">Emotiforms</a> |
+  <span>Deflated Series</span>
+</div>
+
+<div class="page">
+  <h1>Deflated Series</h1>
+
+  <!-- Deflated #1 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_1/Deflated1.webp" alt="Deflated #1">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #1"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #2 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_2/Deflated2.webp" alt="Deflated #2">
+      <img src="images/deflated/deflated_2/Deflated2_detail_1.webp" alt="Deflated #2 detail 1">
+      <img src="images/deflated/deflated_2/Deflated2_detail_2_portrait.webp" alt="Deflated #2 detail 2">
+      <img src="images/deflated/deflated_2/Deflated2_detail_3_portrait.webp" alt="Deflated #2 detail 3">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #2"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #3 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_3/Deflated3.webp" alt="Deflated #3">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #3"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #4 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_4/Deflated4.webp" alt="Deflated #4">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #4"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #5 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_5/Deflated5.webp" alt="Deflated #5">
+      <img src="images/deflated/deflated_5/Deflated5_detail_1.webp" alt="Deflated #5 detail 1">
+      <img src="images/deflated/deflated_5/Deflated5_detail_2.webp" alt="Deflated #5 detail 2">
+      <img src="images/deflated/deflated_5/Deflated5_detail_3.webp" alt="Deflated #5 detail 3">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #5"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #6 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_6/Deflated6.webp" alt="Deflated #6">
+      <img src="images/deflated/deflated_6/Deflated6_detail_1.webp" alt="Deflated #6 detail 1">
+      <img src="images/deflated/deflated_6/Deflated6_detail_2.webp" alt="Deflated #6 detail 2">
+      <img src="images/deflated/deflated_6/Deflated6_detail_3.webp" alt="Deflated #6 detail 3">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #6"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #7 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_7/Deflated7.webp" alt="Deflated #7">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #7"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Deflated #8 -->
+  <section class="work">
+    <div class="image-strip">
+      <img src="images/deflated/deflated_8/Deflated8.webp" alt="Deflated #8">
+    </div>
+    <div class="work-label">
+      <h4>"Deflated #8"</h4>
+      <div class="caption">
+        - Doodle : 9" x 12" ; Bristol board, black ink, colored pencil ; 2020<br>
+        - Swatch : 9" x 12" (unframed), 13" x 16" (framed) ; Bristol board, fabric, glue ; 2021-22<br>
+        - 3-D : 18" x 24" ; Board, fabric, styrofoam, fabric, glue ; 2023
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- LIGHTBOX OVERLAY -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-title" id="lightbox-title"></div>
+  <button class="lightbox-toggle" id="lightbox-toggle">View full series</button>
+  <span class="lightbox-close" id="lightbox-close">&times;</span>
+  <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+  <img class="lightbox-img" id="lightbox-img" src="">
+  <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+</div>
+
+<footer>
+  <span><a href="mailto:artbywandabryant@gmail.com" class="footer-email">artbywandabryant@gmail.com</a></span>
+  <a href="https://nullpointdesign.github.io" target="_blank" rel="noopener" class="npd-signature">
+    <div class="npd-logo-box"><span>N</span></div>
+    <div class="npd-text">Site design by Catherine Anderson @ <b>Null Point Design</b></div>
+  </a>
+</footer>
+
+<!-- HYBRID LIGHTBOX SCRIPT -->
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const closeBtn = document.getElementById('lightbox-close');
+  const nextBtn = document.getElementById('lightbox-next');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const toggleBtn = document.getElementById('lightbox-toggle');
+
+  let globalImages = [];
+  let galleries = new Map(); // workElement -> [imgs]
+  let currentGallery = null;
+  let currentIndex = 0;
+  let mode = 'local'; // 'local' or 'global'
+
+  // Build galleries
+  document.querySelectorAll('.work').forEach(work => {
+    const imgs = Array.from(work.querySelectorAll('.image-strip img'));
+    if (!imgs.length) return;
+    galleries.set(work, imgs);
+    globalImages.push(...imgs);
+
+    imgs.forEach(img => {
+      img.addEventListener('click', () => {
+        mode = 'local';
+        currentGallery = galleries.get(work);
+        currentIndex = currentGallery.indexOf(img);
+        openLightbox(img.src, work);
+        updateToggleLabel();
+      });
+    });
+  });
+
+  function openLightbox(src, workEl) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const titleEl = workEl.querySelector('h4');
+    lightboxTitle.textContent = titleEl ? titleEl.textContent.trim() : '';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateToggleLabel() {
+    toggleBtn.textContent = mode === 'local' ? 'View full series' : 'View artwork only';
+  }
+
+  function showNext() {
+    if (mode === 'local' && currentGallery) {
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      const img = currentGallery[currentIndex];
+      lightboxImg.src = img.src;
+    } else {
+      currentIndex = (currentIndex + 1) % globalImages.length;
+      const img = globalImages[currentIndex];
+      lightboxImg.src = img.src;
+      const workEl = img.closest('.work');
+      const titleEl = workEl && workEl.querySelector('h4');
+      lightboxTitle.textContent = titleEl ? titleEl.textContent.trim() : '';
+    }
+  }
+
+  function showPrev() {
+    if (mode === 'local' && currentGallery) {
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      const img = currentGallery[currentIndex];
+      lightboxImg.src = img.src;
+    } else {
+      currentIndex = (currentIndex - 1 + globalImages.length) % globalImages.length;
+      const img = globalImages[currentIndex];
+      lightboxImg.src = img.src;
+      const workEl = img.closest('.work');
+      const titleEl = workEl && workEl.querySelector('h4');
+      lightboxTitle.textContent = titleEl ? titleEl.textContent.trim() : '';
+    }
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  nextBtn.addEventListener('click', showNext);
+  prevBtn.addEventListener('click', showPrev);
+
+  toggleBtn.addEventListener('click', () => {
+    if (!lightbox.classList.contains('active')) return;
+    const currentSrc = lightboxImg.src;
+
+    if (mode === 'local') {
+      mode = 'global';
+      const idx = globalImages.findIndex(img => img.src === currentSrc);
+      if (idx !== -1) currentIndex = idx;
+    } else {
+      mode = 'local';
+      if (currentGallery) {
+        const idx = currentGallery.findIndex(img => img.src === currentSrc);
+        if (idx !== -1) currentIndex = idx;
+      }
+    }
+    updateToggleLabel();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+
+</body>
+</html>

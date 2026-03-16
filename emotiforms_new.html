@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Wanda Bryant – Emotiforms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gelasio&family=Oswald:wght@200;300;400&family=Spectral+SC:wght@400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Réutilisation du CSS de sculpture.html */
+    body {
+      font-family: 'Gelasio', serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: #333;
+      text-decoration: none;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+    }
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .caption {
+      padding: 1rem;
+      text-align: center;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #333;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+    }
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Wanda Bryant</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="sculpture.html">Sculpture</a></li>
+        <li><a href="emotiforms.html">Emotiforms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Emotiforms</h1>
+    <div class="gallery">
+      <!-- Remplacez ces éléments par vos images et légendes Emotiforms -->
+      <div class="gallery-item">
+        <img src="images/emotiforms/emotiform1.webp" alt="Emotiform 1">
+        <div class="caption">Emotiform 1, 2023</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/emotiforms/emotiform2.webp" alt="Emotiform 2">
+        <div class="caption">Emotiform 2, 2023</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/emotiforms/emotiform3.webp" alt="Emotiform 3">
+        <div class="caption">Emotiform 3, 2023</div>
+      </div>
+      <!-- Ajoutez d'autres éléments de galerie si nécessaire -->
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2026 Wanda Bryant. All rights reserved.</p>
+  </footer>
+</body>
+</html>
